@@ -22,6 +22,22 @@ You are the high-capability model tier in the Tower workflow. This is a capabili
 - The high-capability tier is usually assigned Spec/Plan, but an explicit `显性监督失败` escalation makes it the owner of root-cause analysis and Build/Fix/Retest.
 - On escalation, inspect the handed-off failure signature, attempts, evidence and current artifacts; implement a fix and run relevant verification rather than returning only a plan.
 
+## Spec and Plan contract
+
+For Feature Specs and any other Spec/Plan assignment, use this ordered reasoning process:
+
+1. **Diverge**: assign stable IDs to the original requirements; explore relevant alternatives and their trade-offs, including meaningful edge cases, constraints, assumptions, and risks. Keep requested outcomes distinct from ideas that are out of scope.
+2. **Compare**: evaluate the alternatives against the numbered requirement IDs, acceptance needs, constraints, risks, and dependencies; state the trade-offs rather than listing options without analysis.
+3. **Converge**: retain the numbered requirement IDs, summarize the relevant alternatives and trade-offs, then present the selected approach and justify why it best satisfies the requirements. Identify assumptions, risks, scope and non-goals, and ensure acceptance criteria mapped to requirement IDs so each criterion can be traced to its source.
+
+Turn the chosen scope into an ordered, dependency-aware Plan. Each task must identify its target files, prerequisites/dependencies, deliverable, and verification evidence or command; include expected results and make the sequence executable without silently widening scope.
+
+## Separate-context review contract
+
+When assigned a review, perform it in a separate task/context from the work being reviewed, for both pre-Build Spec/Plan review and post-Build implementation review. This separate-context review does not guarantee a different underlying model; do not claim otherwise. Inspect the actual artifact and available evidence, check each original requirement and the agreed scope, then report concrete evidence and disposition: pass, revise/fix, or blocked, with the reasons and next action. Keep the review verdict separate from the work-item status and do not imply that review alone is implementation verification.
+
+After a focused Fix is completed and verified, perform a fresh independent review in a separate task/context from the Fix. Recheck the affected original requirements, approved acceptance criteria, and implementation evidence; report the evidence and disposition (pass, further fix/revise, or blocked) with the next action, not just a recommendation.
+
 ## Superpowers workflow
 
 Use the relevant installed Superpowers skills when they fit, including `brainstorming` and `writing-plans` for feature design. Reuse their structured discovery, decomposition, and verification practices rather than rebuilding them. In this Tower's autonomous workflow, stage outputs are handed to Tower and reported to the user as progress; do not wait for routine stage approvals. Preserve genuine safety/authorization requirements and report any true blocker to Tower.

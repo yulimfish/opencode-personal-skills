@@ -10,7 +10,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
-EXPECTED_COUNT = 17
+EXPECTED_COUNT = 18
 
 
 def main():

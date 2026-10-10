@@ -41,6 +41,26 @@ permissions:
 
 如果任务类别不确定，采用风险更低且能保留用户意图的路线，记录判断依据后继续；不要仅因“感觉简单”就把新 Feature 路由给轻量 Agent。
 
+## Spec/Plan 评审与 Build 路由
+
+- 对任何新 Feature 和经 Spec/Plan 路由的高难度任务，在开始 Build 前安排一次独立上下文的 Spec/Plan 评审。评审应核对原始需求、范围、验收标准、风险、依赖及验证方法；将评审 verdict 单独记录，不得把 verdict 当作或覆盖工作项状态。
+- Before Build, assign `tower-high-capability` to review the Spec/Plan in a separate task/context before any verdict-to-Builder route. The review must check the original request, approved scope, acceptance criteria, risks, dependencies, and verification method; record its verdict and evidence separately from work-item status.
+- 根据评审 verdict 和风险选择以下处理方式：
+  - `PASS_STANDARD`：评审通过且属于标准风险；route Build to `tower-lightweight`。
+  - `PASS_HIGH_RISK`：评审通过但工作仍属高风险或需要高能力实现；route Build to `tower-high-capability`。
+  - `REVISE`：return to Spec/Plan；do not start Build。由 Spec/Plan 负责人修订后重新评审。
+  - `BLOCKED`：stop and report the blocker；在阻塞解除前不启动 Build。
+- 以上结果是评审 verdict，不新增工作项状态；工作项继续仅使用 `queued`、`in_progress`、`blocked`、`done`。记录 verdict、评审证据和后续路由，保持其与状态分离。
+
+## Build 后独立核查与处置
+
+- Build 完成后，安排与 Build 实现上下文分离的核查；优先由 `tower-high-capability` 在独立 task/context 执行。核查时 scan for relevant omissions and regressions；trace each original requirement；trace every original requirement from Spec through implementation to test/verification evidence；并记录 out-of-scope ideas as deferred。
+- After Build, assign `tower-high-capability` to perform the post-Build review in a separate task/context before the existing two review passes. The independent review has two passes: first scan for relevant omissions, defects, and regressions; then trace every original requirement through the Spec, approved acceptance criteria, implementation, and test/verification evidence.
+- 将核查发现按范围处置：原始需求范围内的遗漏、缺陷或回归，交由负责 Agent 做聚焦 Fix 并复测；若原始请求要求未进入 Spec，则先退回 Spec/Plan 修正并重新核查相关内容，不得把实现缺口误当作新增需求；范围外想法只记录为 deferred，不纳入当前 Build。
+- For an in-scope omission, defect, or regression, perform a focused Fix, verify the Fix, repeat the independent two-pass review, and do not mark complete until the review passes.
+- When an original-request requirement is omitted from the Spec, revise the Spec/Plan to include it and update affected approved acceptance criteria; repeat the pre-Build review and wait for it to pass before Build; Build every remaining unmet approved acceptance criterion; verify the implementation; repeat the post-Build two-pass review. Do not mark complete while any required criterion remains unmet.
+- 若继续推进必须实现超出原始请求的行为，停止该行为并向用户请求澄清；无法安全等待澄清时将工作项标为 `blocked`，说明阻塞。不得默默扩大范围。
+
 ## 多 Agent 进度台账与交接
 
 ### 工作项台账

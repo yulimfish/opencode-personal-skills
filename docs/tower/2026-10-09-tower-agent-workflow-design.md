@@ -104,3 +104,31 @@
 看板应以工作项为单位实现上述台账字段和状态流转，并将失败指纹、独立尝试次数、失败证据及升档记录与 Work ID 关联；升档原因与工作状态分开保存。这样既能追溯失败循环，也能呈现负责人从轻量档位切换到高能力档位的交接过程。
 
 配置来源：`~/.config/opencode/agents/tower-controller.md`、`~/.config/opencode/agents/tower-high-capability.md`、`~/.config/opencode/agents/tower-lightweight.md`。配置 smoke test 已通过；OpenChamber 模型绑定后的真实委派行为仍待验证。
+
+## 2026-10-11 补充：Spec 发散、Build 受控与双遍复核
+
+本补充适用于所有新 Feature，以及经 Tower 路由进入 Spec/Plan 的高难任务；目标清楚、低风险且非 Feature 的任务继续允许轻量 Agent 直接端到端处理。
+
+### Spec 与 Plan
+
+- Spec 按 `Diverge → Compare → Converge` 展开：从原始请求提取并编号需求，探索相关场景、约束、风险与备选方案，记录相关取舍并选定一个方案；明确范围、非目标及范围外/延期想法，并将可测试验收标准映射回需求编号。
+- Plan 将需求与验收标准转成有序、可执行的任务；记录任务依赖、目标文件/产物、允许范围及验证命令或步骤和预期证据，并保持任务到需求/验收编号的可追溯关系。
+
+### Build 前评审
+
+- Build 前评审 verdict 仅使用 `PASS_STANDARD`、`PASS_HIGH_RISK`、`REVISE`、`BLOCKED`：`PASS_STANDARD` 路由至轻量档位 Build；`PASS_HIGH_RISK` 路由至高能力档位 Build；`REVISE` 退回修订 Spec/Plan 并重新评审；`BLOCKED` 停止并报告阻塞。后两种 verdict 均不得启动 Build。
+- Verdict 是 Work ID 上独立记录的评审元数据，不属于或改变既有工作项状态 `queued`、`in_progress`、`blocked`、`done`。同一 Work ID 的同一失败指纹第 3 次独立失败后升档的规则保持不变：交由高能力档位接手根因分析及 Build/Fix/Retest。本补充不新增 Agent ID、模型 ID 或工作项状态。
+
+### Build 范围与 Build 后双遍复核
+
+- Build 可以实现已批准验收标准所要求的用户可见行为；未经用户明确批准，不得增加超出这些验收标准的行为；同时不得夹带无关重构或清理。保持既定行为的范围调整交回 Tower/Plan；未获批准的范围外想法延期，若继续工作必须依赖则阻塞并报告。
+- Build 后复核分两遍：第一遍扫描相关遗漏与回归；第二遍逐项追踪每条原始需求从 Spec、验收标准到实现及测试/验证证据。复核结论按语义处置：范围内遗漏、缺陷或回归交由聚焦 Fix 并复核；原始请求已有但 Spec 漏列的要求先修订 Spec/Plan 再继续；范围外改进记录为延期，不静默实现。
+- 评审职责与上下文：`tower-high-capability` 必须在 Build 前、Verdict 路由至 Builder 之前，以独立评审任务/上下文审查 Spec/Plan；Build 完成后，再以与实现任务/上下文分离的独立任务执行 Build 后双遍复核。独立上下文用于职责隔离，不保证底层模型不同。
+- 对范围内遗漏、缺陷或回归，执行聚焦 Fix，随后对 Fix 做实际验证，再另起新鲜、独立的双遍复核任务。若复核仍指出需要修正的范围内问题，按证据继续“聚焦 Fix → 实际验证 → 新的独立双遍复核”，直至复核通过；通过前不得标记完成。
+- 若发现原始请求已要求、但 Spec 漏列的要求，先更新 Spec/Plan 及受影响的验收标准；随后重新执行 Build 前评审，只有取得 `PASS_STANDARD` 或 `PASS_HIGH_RISK` 才可继续，且按该 verdict 与风险路由 Builder。Build 所有仍未满足的已批准验收标准后，进行实际验证并重复 Build 后双遍复核；只有双遍复核通过且所有必需标准满足时才可标记完成。若复核仍发现范围内问题，按上述聚焦修正与重新复核循环处理。此修订不得静默加入原始请求范围之外的行为，原有用户明确批准边界继续适用。
+
+### 配置验证边界与来源
+
+- 配置 smoke test 的 `PASS` 仅证明已加载的配置及 Agent prompt 契约符合检查项，不证明真实模型委派已运行；模型绑定后仍须通过受控验证确认委派行为。
+- Tower Agent 定义来源：`~/.config/opencode/agents/tower-controller.md`、`~/.config/opencode/agents/tower-high-capability.md`、`~/.config/opencode/agents/tower-lightweight.md`。
+- 批准的 Spec 来源：`docs/superpowers/specs/2026-10-10-tower-spec-plan-build-review-design.md`。

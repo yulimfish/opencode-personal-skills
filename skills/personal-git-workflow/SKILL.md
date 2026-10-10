@@ -13,6 +13,13 @@ The global `AGENTS.md` contains the always-applicable Git safety baseline. Load 
 - After staging, inspect `git diff --cached --name-status`. Confirm every staged path is intended and that no user-explicitly-excluded content is included (for example, test package names / `applicationId`, test files, or existing Gradle worktree changes).
 - Use English commit messages and PR titles/bodies unless the user explicitly asks for Chinese.
 
+## Superpowers phase checkpoints
+
+- This applies only to a task using the long-running Superpowers ledger (`.superpowers/sdd/.../progress.md`), not every task or every small implementation step.
+- After each independently completable plan task passes its targeted verification, treat it as one local commit checkpoint. Do not commit incomplete work or split trivial operations into commits.
+- Commit only within the scope explicitly authorized by the user in the current session, following global `AGENTS.md` §3.1. Without authorization, update the ledger/todo and mark the checkpoint as pending; do not stage or commit.
+- After a checkpoint is committed, record its commit hash in the plan ledger so progress and repository state stay connected. Do not push unless separately authorized.
+
 ## Hidden local changes before merge/rebase
 
 - Before merging or rebasing with upstream, run `git ls-files -v` to identify paths marked `skip-worktree` (`S`), `assume-unchanged` (`h`), or both (`s`). With `-v`, lowercase tags indicate `assume-unchanged`; therefore lowercase `s` is a skip-worktree path with assume-unchanged also set.
