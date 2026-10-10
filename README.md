@@ -4,7 +4,7 @@ Personal OpenCode agent workflow and first-party skills, consolidated in one rep
 
 ## Included
 
-- **14 first-party skills** in `skills/<name>/SKILL.md`: ten previously published under `Yulimfish/opencode-skill-*` and four personal policy skills extracted from the global contract.
+- **17 first-party skills** in `skills/<name>/SKILL.md`: ten previously published under `Yulimfish/opencode-skill-*` and seven personal policy skills extracted from the global contract.
 - **Tower workflow** in `agents/`: a primary controller and two model-tier subagents.
 - **Global contract** in `AGENTS.md`, with corresponding skill routes.
 - **Source records** in `docs/` and a Tower configuration smoke test in `tests/`.
@@ -13,9 +13,9 @@ This repository is the consolidated source snapshot. Some skills also retain the
 
 ## Skill provenance
 
-The ten `opencode-skill-*` entries were matched to repositories owned by `Yulimfish`; local files were compared with each repository's current `main` `SKILL.md` through GitHub's API. Eight match byte-for-byte. `memory-dream` differs because its public copy generalizes account-specific archive references and normalizes trailing whitespace. `post-task-audit` uses a folded YAML description to fix invalid upstream frontmatter. All ten source repositories declare MIT; their original `Yulimfish` copyright notice is retained here.
+The ten `opencode-skill-*` entries were matched to repositories owned by `Yulimfish`; local files were compared with each repository's current `main` `SKILL.md` through GitHub's API. Eight match byte-for-byte. `memory-dream` differs because its public copy generalizes account-specific archive references, normalizes trailing whitespace, and folds the long YAML description; `post-task-audit` also uses a folded YAML description to fix invalid upstream frontmatter. All ten source repositories declare MIT; their original `Yulimfish` copyright notice is retained here.
 
-The four `personal-*` skills are the task-specific policies extracted into the global contract and referenced by its routing rules. Other installed skills were excluded when their provenance points to upstream authors or external skill collections. For example, local `improve-animations` and `review-animations` correspond to Emil Kowalski's upstream `emilkowalski/skills`; the `yuque-personal-*` skills identify `chen201724` as author. Similar names or subject matter alone are not treated as evidence of authorship.
+The seven `personal-*` skills are the task-specific policies extracted into the global contract and referenced by its routing rules. Other installed skills were excluded when their provenance points to upstream authors or external skill collections. For example, local `improve-animations` and `review-animations` correspond to Emil Kowalski's upstream `emilkowalski/skills`; the `yuque-personal-*` skills identify `chen201724` as author. Similar names or subject matter alone are not treated as evidence of authorship.
 
 The public copies generalize account-specific email values, the personal persona line, local checkout paths, and a machine-specific incident reference. Local configuration files are unchanged except for adding the required `name` metadata to `swarm-cluster`.
 
