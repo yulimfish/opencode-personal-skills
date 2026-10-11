@@ -8,6 +8,13 @@ compatibility: Requires the agent runtime to expose the existing websearch and w
 
 Provide three distinct web-retrieval modes with the tools already available in the agent runtime: a fast lookup, a multi-source research workflow, and direct retrieval of a known URL.
 
+## Scope and Invocation
+
+- This skill covers external web search, web research, and fetching known web pages. Before calling `websearch` or `webfetch` for these tasks, load and follow this skill.
+- This is not a general local-file, codebase, or private-knowledge-base search skill. For those sources, load a directly matching skill when available; otherwise use the relevant native search and read tools.
+- When web search or page retrieval alone is sufficient, do not use Safari MCP. Use `websearch` for search and `webfetch` for page retrieval; Safari MCP is not a fallback for either operation.
+- Use Safari MCP only when the task separately requires actual browser interaction, visual inspection, or access that depends on a browser session; those tasks are outside this skill's retrieval workflow.
+
 ## Strict Tool Boundary
 
 - Use only the existing `websearch` and `webfetch` tool calls for web retrieval.
