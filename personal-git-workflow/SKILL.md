@@ -13,6 +13,13 @@ The global `AGENTS.md` contains the always-applicable Git safety baseline. Load 
 - After staging, inspect `git diff --cached --name-status`. Confirm every staged path is intended and that no user-explicitly-excluded content is included (for example, test package names / `applicationId`, test files, or existing Gradle worktree changes).
 - Use English commit messages and PR titles/bodies unless the user explicitly asks for Chinese.
 
+## Multi-repository scope
+
+- Identify every independent Git root involved (including content subrepositories) and map each changed path to its owning repository before staging. A clean status in one root does not prove another root is clean or synchronized.
+- Compare each source/destination mapping, including additions and deletions; stage explicit repository-relative paths and inspect `git diff --cached --name-status` separately in every repository.
+- Treat commit and push authorization as repository-specific. Do not push any repository without explicit authorization for that repository in the current task.
+- Exclude incidental operating-system/editor artifacts such as `.DS_Store` and `Thumbs.db` unless one is itself an explicit deliverable.
+
 ## Superpowers phase checkpoints
 
 - This applies only to a task using the long-running Superpowers ledger (`.superpowers/sdd/.../progress.md`), not every task or every small implementation step.

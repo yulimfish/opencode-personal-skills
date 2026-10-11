@@ -18,3 +18,8 @@ Use 2–4 parallel subagents for complex or high-quality critical work when it c
 - Synthesize results in this order: consensus > majority > highest confidence.
 - On failure, record the missing information as `BLOCKED:`; do not retry more than once with a halved worker count.
 - Detailed swarm mechanics are also covered by `swarm-cluster`.
+
+## Slice brief minimum
+
+- Each worker slice must state its allowed evidence sources, the evidence/output expected, a bounded budget (such as files, tool calls, or time), and permitted side effects. Default to read-only unless the main agent explicitly delegates a specific mutation.
+- Forbid nested agents in every worker wave. Use a separate brief file only when a multi-phase task needs a durable handoff; do not create one for ordinary short waves.

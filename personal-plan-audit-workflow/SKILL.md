@@ -37,7 +37,7 @@ Use a fresh `goal-verify` subagent by default. Supply the original user request,
 1. Plan → Build → Audit. Keep the audit independent and read-only; the executor must not self-audit.
 2. The audit covers requirement completeness, logical correctness, edge cases, code quality, test coverage (including tautological tests), and actual runtime evidence.
 3. Fix BLOCKER findings before delivery. Fix inexpensive MAJOR findings; otherwise disclose them. Mention MINOR findings without silently dropping them. This severity guidance does not waive the required final PASS for Hard or Level 3 work: if a deferred finding leaves the audit at CONDITIONAL PASS/FAIL, do not claim completion; fix it or escalate the blocker to the user.
-4. Re-audit fixes in a fresh context, up to 3 rounds. If still not PASS after round 3, stop and escalate the blocker; do not claim completion.
+4. Default to at most 3 fix-and-independent-re-audit rounds for the same deliverable in one review window. Obtain explicit user authorization before a fourth round. Without that authorization, stop and report each remaining finding and its impact; Hard/Level 3 work still cannot be delivered as complete without PASS.
 5. Deliver with the auditor, verdict, finding counts, and evidence. Both Hard and Level 3 work require a final PASS before delivery; an audit never substitutes for user authorization or confirmation before irreversible actions.
 
 ## Phase checkpoints and commits

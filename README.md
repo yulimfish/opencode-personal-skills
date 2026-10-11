@@ -2,7 +2,7 @@
 
 OpenCode 个人技能合集，清单快照日期：2026-10-11。
 
-本目录覆盖个人 OpenCode 配置中当前的 **50 个 skill**：
+本目录记录截至 2026-10-11 的 **50 个 skill 条目**；这是来源目录清单，不代表任何一台机器上当前已安装或加载的技能数量：
 
 - **18 个原创 skill**：以完整文件夹形式保存在仓库根目录的 `<name>/` 下；每个文件夹另含中文 `README.md`，介绍其用途、触发条件与内容结构。
 - **32 个非原创 skill**：不复制技能正文，仅在下方列出功能简介及已核实的原始来源链接。
@@ -32,7 +32,7 @@ OpenCode 个人技能合集，清单快照日期：2026-10-11。
 
 ## 非原创 Skills — 仅列来源链接
 
-以下 skill 存在于本地配置中，但由其他作者维护。本仓库不再分发这些 skill 的正文；请从链接访问原始内容，并遵守其许可条款。
+以下条目指向由其他作者编写和维护的 skill。本仓库不复制这些技能正文；请从所列原始来源查阅，并遵守相应许可。
 
 | Skill | 能力简介 | 原始来源 |
 | --- | --- | --- |
@@ -68,6 +68,12 @@ OpenCode 个人技能合集，清单快照日期：2026-10-11。
 | `yuque-personal-smart-summary` | 按简短、要点或详细粒度总结语雀文档或知识库。 | [yuque/yuque-plugin](https://github.com/yuque/yuque-plugin/blob/main/plugins/yuque-personal/skills/yuque-personal-smart-summary/SKILL.md) |
 | `yuque-personal-stale-detector` | 找出知识库中过时的文档并建议更新或归档。 | [yuque/yuque-plugin](https://github.com/yuque/yuque-plugin/blob/main/plugins/yuque-personal/skills/yuque-personal-stale-detector/SKILL.md) |
 | `yuque-personal-style-extract` | 分析写作样本并提炼可复用的个人文风画像。 | [yuque/yuque-plugin](https://github.com/yuque/yuque-plugin/blob/main/plugins/yuque-personal/skills/yuque-personal-style-extract/SKILL.md) |
+
+## 技能目录与来源
+
+- `~/.config/opencode/skills/` 是 OpenCode 配置技能目录；`~/.agents/skills/` 是独立的用户级 agent 技能目录。应分别盘点与计数，不要将其中一个目录的数量表述为完整运行时总数。
+- 本仓库是个人原创 skill 的来源；第三方技能正文保留在各自上游，不应在此编辑或重新分发。
+- 不假设不同目录中同名 skill 的运行时优先级。避免重复命名；依赖优先级前先核实实际加载器及版本。
 
 ## 仓库关系
 

@@ -94,6 +94,9 @@ Every worker prompt MUST contain, in this order:
 ## Your slice
 <exactly what to do, bounded — file paths, line ranges, questions to answer>
 
+## Evidence and budget
+<allowed evidence sources; expected citations/results; a bounded file/tool/time budget; permitted side effects (read-only unless explicitly delegated); no nested agents>
+
 ## Out of scope (do NOT touch)
 <other workers' slices>
 

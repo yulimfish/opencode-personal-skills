@@ -28,4 +28,10 @@ Trigger phrases include “整理代码并发布 / 开源发布 / publish it / �
 5. **Archive** — Write `YYYY-MM-DD-<slug>.md` to the workspace and sync it to the configured Yuque repository (follow the project contract's archive rules).
 6. **Memory** — Tag with `release`, artifact name, and date.
 
+## Public artifact evidence
+
+- Before publishing, classify every included file by provenance; create a sanitized public copy, scan for private identity, local paths, device identifiers, and credentials, compare local/remote file blobs, then request a fresh-context read-only audit. Record intentional privacy-redacted differences; never print secret matches into logs or reports.
+- A practical email scan pattern is `[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}`; a match requires review, not automatic disclosure.
+- Evidence from the 2026-10-10/11 workflow bundle: two batches (30 files, then 35); the follow-up matched all 35 local/remote blobs, passed the privacy scan and two recorded tests, and received an independent `PASS` with 0 findings. The historical record does not identify those test names, so these counts establish artifact checks only, not runtime behavior. Holdout: `Tower model-backed delegation remains unverified until OpenChamber model binding`.
+
 Working clone: `<local workflow-kit checkout path>`.
