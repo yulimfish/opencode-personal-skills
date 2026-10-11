@@ -4,31 +4,31 @@ Personal skill collection for the OpenCode setup. Snapshot date: 2026-10-11.
 
 This catalog covers all **50 skills** currently present in the personal OpenCode skill configuration:
 
-- **18 personal originals** are stored as complete skill folders under `skills/<name>/`.
+- **18 personal originals** are stored as complete skill folders at `<name>/` in the repository root.
 - **32 non-original skills** are not copied; each is listed below with its capability and a link to its original source.
 
 ## Personal original skills
 
-| Skill | Capability | Original file / source |
+| Skill | Capability | Stored file / provenance |
 | --- | --- | --- |
-| `clarify-before-act` | Resolves costly ambiguity with a focused confirmation before taking a consequential path. | [Stored file](skills/clarify-before-act/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-clarify-before-act) |
-| `execution-economy` | Matches execution, verification, and audit effort to risk; favors the shortest safe path. | [Stored file](skills/execution-economy/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-execution-economy) |
-| `long-term-memory` | Recalls relevant persistent memories and records durable user-approved decisions. | [Stored file](skills/long-term-memory/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-long-term-memory) |
-| `memory-dream` | Consolidates scattered memories and proposes stale-memory cleanup for user confirmation. | [Stored file](skills/memory-dream/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-memory-dream) |
-| `memory-graph-ui` | Opens and explains the local opencode-mem timeline and profile WebUI. | [Stored file](skills/memory-graph-ui/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-memory-graph-ui) |
-| `personal-execution-workflow` | Applies personal execution-economy and tool-call-discipline rules to multi-step work. | [Stored file](skills/personal-execution-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `personal-git-workflow` | Protects commit scope and hidden worktree/index changes during Git operations. | [Stored file](skills/personal-git-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `personal-memory-workflow` | Defines when to recall and persist memory, including privacy and deduplication rules. | [Stored file](skills/personal-memory-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `personal-plan-audit-workflow` | Runs a bounded Plan → Build → independent Audit loop for hard and high-risk tasks. | [Stored file](skills/personal-plan-audit-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `personal-release-workflow` | Guides repository releases, distribution registration, privacy, verification, and archival. | [Stored file](skills/personal-release-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `personal-session-hygiene` | Keeps context compression deliberate and closes automated browser sessions after use. | [Stored file](skills/personal-session-hygiene/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `personal-swarm-workflow` | Coordinates small, independent 2–4-agent work waves and their synthesis. | [Stored file](skills/personal-swarm-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
-| `post-task-audit` | Requests a fresh-context independent audit after substantial work or a releasable change. | [Stored file](skills/post-task-audit/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-post-task-audit) |
-| `screenshot-to-ui` | Recreates a UI from a reference image through analysis, build, visual diff, and iteration. | [Stored file](skills/screenshot-to-ui/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-screenshot-to-ui) |
-| `swarm-cluster` | Decomposes suitable tasks among parallel subagents and synthesizes their results. | [Stored file](skills/swarm-cluster/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-swarm-cluster) |
-| `tiered-web-search` | Routes web retrieval through quick search, multi-source research, or known-URL fetch. | [Stored file](skills/tiered-web-search/SKILL.md) · locally authored |
-| `tool-call-discipline` | Selects the right tools, parallelizes independent calls, reads broadly, and checks parameters. | [Stored file](skills/tool-call-discipline/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-tool-call-discipline) |
-| `ui-preview-first` | Requires a before/after ASCII wireframe before UI layout or hierarchy changes. | [Stored file](skills/ui-preview-first/SKILL.md) · [standalone repo](https://github.com/Yulimfish/opencode-skill-ui-preview-first) |
+| `clarify-before-act` | Resolves costly ambiguity with a focused confirmation before taking a consequential path. | [clarify-before-act/SKILL.md](clarify-before-act/SKILL.md) |
+| `execution-economy` | Matches execution, verification, and audit effort to risk; favors the shortest safe path. | [execution-economy/SKILL.md](execution-economy/SKILL.md) |
+| `long-term-memory` | Recalls relevant persistent memories and records durable user-approved decisions. | [long-term-memory/SKILL.md](long-term-memory/SKILL.md) |
+| `memory-dream` | Consolidates scattered memories and proposes stale-memory cleanup for user confirmation. | [memory-dream/SKILL.md](memory-dream/SKILL.md) |
+| `memory-graph-ui` | Opens and explains the local opencode-mem timeline and profile WebUI. | [memory-graph-ui/SKILL.md](memory-graph-ui/SKILL.md) |
+| `personal-execution-workflow` | Applies personal execution-economy and tool-call-discipline rules to multi-step work. | [personal-execution-workflow/SKILL.md](personal-execution-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `personal-git-workflow` | Protects commit scope and hidden worktree/index changes during Git operations. | [personal-git-workflow/SKILL.md](personal-git-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `personal-memory-workflow` | Defines when to recall and persist memory, including privacy and deduplication rules. | [personal-memory-workflow/SKILL.md](personal-memory-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `personal-plan-audit-workflow` | Runs a bounded Plan → Build → independent Audit loop for hard and high-risk tasks. | [personal-plan-audit-workflow/SKILL.md](personal-plan-audit-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `personal-release-workflow` | Guides repository releases, distribution registration, privacy, verification, and archival. | [personal-release-workflow/SKILL.md](personal-release-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `personal-session-hygiene` | Keeps context compression deliberate and closes automated browser sessions after use. | [personal-session-hygiene/SKILL.md](personal-session-hygiene/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `personal-swarm-workflow` | Coordinates small, independent 2–4-agent work waves and their synthesis. | [personal-swarm-workflow/SKILL.md](personal-swarm-workflow/SKILL.md) · extracted from the [root agent contract](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md) |
+| `post-task-audit` | Requests a fresh-context independent audit after substantial work or a releasable change. | [post-task-audit/SKILL.md](post-task-audit/SKILL.md) |
+| `screenshot-to-ui` | Recreates a UI from a reference image through analysis, build, visual diff, and iteration. | [screenshot-to-ui/SKILL.md](screenshot-to-ui/SKILL.md) |
+| `swarm-cluster` | Decomposes suitable tasks among parallel subagents and synthesizes their results. | [swarm-cluster/SKILL.md](swarm-cluster/SKILL.md) |
+| `tiered-web-search` | Routes web retrieval through quick search, multi-source research, or known-URL fetch. | [tiered-web-search/SKILL.md](tiered-web-search/SKILL.md) · locally authored |
+| `tool-call-discipline` | Selects the right tools, parallelizes independent calls, reads broadly, and checks parameters. | [tool-call-discipline/SKILL.md](tool-call-discipline/SKILL.md) |
+| `ui-preview-first` | Requires a before/after ASCII wireframe before UI layout or hierarchy changes. | [ui-preview-first/SKILL.md](ui-preview-first/SKILL.md) |
 
 ## Non-original skills — source links only
 
@@ -74,7 +74,7 @@ The following skills are present in the local configuration but are authored and
 - **Distribution root:** [Yulimfish/opencode-workflow-kit](https://github.com/Yulimfish/opencode-workflow-kit)
 - **Global agent contract:** [`AGENTS.md` in the root kit](https://github.com/Yulimfish/opencode-workflow-kit/blob/main/AGENTS.md)
 
-The root kit continues installing its ten selected skills from their standalone repositories. This repository is the personal skill catalog and source snapshot; it does not replace the installer.
+The root kit installs its ten selected skills from this catalog; external skill bodies remain at their linked upstream sources.
 
 ## License
 
