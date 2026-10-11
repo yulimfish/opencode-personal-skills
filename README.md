@@ -5,9 +5,8 @@ Personal OpenCode agent workflow and first-party skills, consolidated in one rep
 ## Included
 
 - **18 first-party skills** in `skills/<name>/SKILL.md`: ten previously published under `Yulimfish/opencode-skill-*`, seven personal policy skills extracted from the global contract, and the locally authored `tiered-web-search` skill.
-- **Tower workflow** in `agents/`: a primary controller and two model-tier subagents.
 - **Global contract** in `AGENTS.md`, with corresponding skill routes.
-- **Source records** in `docs/`, including the latest Tower and tiered-search Specs/Plans, plus a Tower configuration smoke test in `tests/`.
+- **Source records** in `docs/`, including the latest tiered-search Spec/Plan.
 
 This repository is the consolidated source snapshot. Some skills also retain their existing standalone GitHub repositories for compatibility with the current workflow-kit installer.
 
@@ -21,13 +20,7 @@ The public copies generalize account-specific email and Yuque values, the person
 
 ## Use
 
-Copy selected skill directories from `skills/` into `~/.config/opencode/skills/`. Copy `agents/*.md` into `~/.config/opencode/agents/` to use the Tower definitions. Review `AGENTS.md` before adopting it: these files capture one user's preferences and local assumptions, not universal defaults.
-
-Tower model delegation requires model bindings in OpenChamber. The smoke test verifies active agent discovery and configuration markers, not model behavior. After copying `agents/*.md` into the active global config, run:
-
-```bash
-python3 tests/2026-10-09-tower-agent-config-smoke-test.py
-```
+Copy selected skill directories from `skills/` into `~/.config/opencode/skills/`. Review `AGENTS.md` before adopting it: these files capture one user's preferences and local assumptions, not universal defaults.
 
 Validate skill metadata with (requires PyYAML):
 
