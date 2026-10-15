@@ -9,8 +9,11 @@ The global `AGENTS.md` contains the always-applicable Git safety baseline. Load 
 
 ## Commit scope
 
-- Before committing, run `git status --short` and identify the exact intended scope.
-- After staging, inspect `git diff --cached --name-status`. Confirm every staged path is intended and that no user-explicitly-excluded content is included (for example, test package names / `applicationId`, test files, or existing Gradle worktree changes).
+- Before editing, translate the user's authorization into an explicit allowlist of repository-relative paths; keep exclusions explicit. Related documentation or tests remain out of scope unless authorized.
+- Before committing, run `git status --short` and identify pre-existing changes so they are preserved.
+- Stage explicit paths. Inspect `git diff --cached --name-status` and compare the entire staged path list against the allowlist—not just whether each path seems related. If an unexpected path appears, stop and determine its origin; do not discard it or expand scope without authorization.
+- Before committing, verify the candidate commit's changed paths against its intended parent, for example with `git diff --cached <intended-parent> --name-status`. For a normal commit, the parent is current `HEAD`; for `--amend`, compare against the parent of the commit being amended. The resulting path list must exactly match the allowlist; checking only the staged diff against current `HEAD` can miss paths already present in an amended commit.
+- If correcting out-of-scope content would require restoring files or rewriting history, explain the exact paths and impact and obtain explicit user authorization first. Once authorized, back up the original branch tip and all index, worktree, and untracked changes before rewriting; then verify the final candidate against its intended parent.
 - Use English commit messages and PR titles/bodies unless the user explicitly asks for Chinese.
 
 ## Multi-repository scope
